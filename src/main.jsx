@@ -8,13 +8,16 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
+
 import Signup from "./pages/Signup.jsx";
+import ForgetPassword from "./pages/forgetpass.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={App} />
       <Route path="signup" Component={Signup} />
+      <Route path="forget" Component={ForgetPassword} />
     </Route>
   )
 );
