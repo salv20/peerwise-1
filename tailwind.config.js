@@ -7,7 +7,7 @@ export default {
         padding: "15px",
       },
       backgroundImage: {
-        frame_img: 'url("/Frame 19.png")',
+        frame_img: 'url("/WorkSpace.png")',
       },
     },
 
