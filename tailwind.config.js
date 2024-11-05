@@ -1,9 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      container: {
+        padding: "15px",
+      },
+      backgroundImage: {
+        frame_img: 'url("/WorkSpace.png")',
+      },
+    },
+
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+    },
   },
   plugins: [],
-}
-
+};
