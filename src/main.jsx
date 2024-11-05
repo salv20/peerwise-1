@@ -8,13 +8,13 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import Signup from "./pages/Signup.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={App} />
-      <Route path="signup" Component={Signup} />
+      <Route path="signup" Component={SignUpPage} />
     </Route>
   )
 );
