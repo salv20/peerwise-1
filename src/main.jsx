@@ -9,23 +9,21 @@ import {
   Route,
 } from "react-router-dom";
 
-import Signup from "./pages/Signup.jsx";
-import ForgetPassword from "./pages/forgetpass.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index Component={App} />
-      <Route path="signup" Component={Signup} />
-      <Route path="forget" Component={ForgetPassword} />
+      <Route path="signup" Component={SignUpPage} />
+      <Route path="forgot-password" Component={ForgotPasswordPage} />
     </Route>
   )
 );
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App /> */}
-
     <RouterProvider router={router} />
   </StrictMode>
 );

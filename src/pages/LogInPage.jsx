@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BiShow, BiSolidHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const LogInPage = () => {
   const [show, setShow] = useState(false);
 
   return (
@@ -34,13 +34,14 @@ const Login = () => {
             <div className="">
               <div className=" grid gap-4 lg:gap-8">
                 <h1 className="text-[28px] font-[700]">
-                  Login to <span className="text-[#37BBCA]">Peerwize</span>
+                  PageLogInPage to{" "}
+                  <span className="text-[#37BBCA]">Peerwize</span>
                 </h1>
 
                 <div className="text-[16px] flex items-center gap-[8px] font-[400] justify-center">
                   <span className="signup_span" />
                   <p>
-                    Don’t have an account?{" "}
+                    Don’t have an account?&nbsp;
                     <Link to="signup" className="text-[#37BBCA]">
                       Sign up
                     </Link>
@@ -79,7 +80,7 @@ const Login = () => {
                   </div>
 
                   <Link
-                    to="forget"
+                    to="/forgot-password"
                     className="text-[#37BBCA] text-[13px] mt-[2px] flex w-fit"
                   >
                     Forgot password?
@@ -90,19 +91,20 @@ const Login = () => {
                   type="submit"
                   className="bg-[#37BBCA] text-[16px] text-[#FFFFFF] px-[12px] py-[11px] h-[46px] rounded-[4px]"
                 >
-                  Login
+                  PageLogInPage
                 </button>
               </form>
 
               <p className="font-roboto font-400 text-[13px]">
-                By continuing, you agree to our{" "}
+                By continuing, you agree to our&nbsp;
                 <Link to="/" className="text-[#37BBCA]">
                   Terms of service
-                </Link>{" "}
-                and{" "}
+                </Link>
+                &nbsp; and&nbsp;
                 <Link to="/" className="text-[#37BBCA]">
                   Privacy policy
-                </Link>{" "}
+                </Link>
+                &nbsp;
               </p>
             </div>
           </div>
@@ -112,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LogInPage;

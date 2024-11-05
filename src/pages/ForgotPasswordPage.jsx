@@ -1,4 +1,4 @@
-const ForgetPassword = () => {
+const ForgotPasswordPage = () => {
   return (
     <section>
       <div className="container mx-auto lg:w-[100%] lg:p-0 lg:m-0 lg:max-w-full">
@@ -9,7 +9,7 @@ const ForgetPassword = () => {
             <div className="bg-[#088395CC] absolute w-full h-full">
               <div className="flex flex-col min-h-screen justify-center items-center">
                 <img
-                  src="/Peerwize Logo.png"
+                  src="/Logo.png"
                   alt="logo"
                   height="127.08px"
                   width="127.09px"
@@ -55,4 +55,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default ForgotPasswordPage;

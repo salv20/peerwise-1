@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Countries = ["country", "nigeria", "south africa", "ghana", "usa"];
 const Cities = ["city", "port harcourt", "cape town", "accra", "new york"];
 
-const Signup = () => {
+const SignUpPage = () => {
   const [show, setShow] = useState(false);
 
   return (
@@ -42,9 +42,9 @@ const Signup = () => {
               <div className="text-[16px] flex items-center gap-[8px] font-[400] justify-center">
                 <span className="signup_span" />
                 <p>
-                  Already have an account?{" "}
+                  Already have an account?&nbsp;
                   <Link to="/" className="text-[#37BBCA]">
-                    {" "}
+                    &nbsp;
                     {/* PATH TO LOGIN PAGE */}
                     Login
                   </Link>
@@ -165,14 +165,15 @@ const Signup = () => {
             </form>
 
             <p className="font-roboto font-400 text-[13px]">
-              By continuing, you agree to our{" "}
+              By continuing, you agree to our&nbsp;
               <Link to="/" className="text-[#37BBCA]">
                 Terms of service
-              </Link>{" "}
-              and{" "}
+              </Link>
+              &nbsp; and&nbsp;
               <Link to="/" className="text-[#37BBCA]">
                 Privacy policy
-              </Link>{" "}
+              </Link>
+              &nbsp;
             </p>
           </div>
         </div>
@@ -181,4 +182,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUpPage;
