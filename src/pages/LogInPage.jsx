@@ -3,7 +3,7 @@ import { BiShow, BiSolidHide } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const LogInPage = () => {
-  const [show, setShow] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <section>
@@ -15,7 +15,7 @@ const LogInPage = () => {
             <div className="bg-[#088395CC] absolute w-full h-full">
               <div className="flex flex-col min-h-screen justify-center items-center">
                 <img
-                  src="/Peerwize Logo.png"
+                  src="/Logo.png"
                   alt="logo"
                   height="127.08px"
                   width="127.09px"
@@ -34,7 +34,7 @@ const LogInPage = () => {
             <div className="">
               <div className=" grid gap-4 lg:gap-8">
                 <h1 className="text-[28px] font-[700]">
-                  PageLogInPage to{" "}
+                  Login to&nbsp;
                   <span className="text-[#37BBCA]">Peerwize</span>
                 </h1>
 
@@ -50,7 +50,7 @@ const LogInPage = () => {
                 </div>
               </div>
 
-              <form action="" className="py-4 pt-8 flex flex-col gap-y-6">
+              <form className="py-4 pt-8 flex flex-col gap-y-6">
                 <input
                   type="text"
                   id="email-no"
@@ -59,26 +59,31 @@ const LogInPage = () => {
                   className="auth_input"
                 />
 
-                <div className="relative">
-                  <input
-                    type={!show ? "password" : "text"}
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    className="auth_input"
-                  />
-
-                  <div className="absolute top-[10px] text-[#848484] cursor-pointer right-3 text-3xl">
-                    <BiShow
-                      className={show ? "hidden" : "block"}
-                      onClick={() => setShow(true)}
+                <div>
+                  <div className="auth_input flex items-center justify-between">
+                    <input
+                      type={!showPassword ? "password" : "text"}
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                      className="outline-none w-full h-full"
                     />
-                    <BiSolidHide
-                      className={!show ? "hidden" : "block"}
-                      onClick={() => setShow(false)}
-                    />
+                    <button
+                      type="button"
+                      aria-label="showPassword"
+                      className="text-[#848484] text-3xl"
+                    >
+                      {showPassword ? (
+                        <BiShow
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      ) : (
+                        <BiSolidHide
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      )}
+                    </button>
                   </div>
-
                   <Link
                     to="/forgot-password"
                     className="text-[#37BBCA] text-[13px] mt-[2px] flex w-fit"
@@ -91,7 +96,7 @@ const LogInPage = () => {
                   type="submit"
                   className="bg-[#37BBCA] text-[16px] text-[#FFFFFF] px-[12px] py-[11px] h-[46px] rounded-[4px]"
                 >
-                  PageLogInPage
+                  Login
                 </button>
               </form>
 
