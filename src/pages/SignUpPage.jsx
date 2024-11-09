@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BiShow, BiSolidHide } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const countyNames = ["country", "nigeria", "south africa", "ghana", "usa"];
 const cityNames = ["city", "port harcourt", "cape town", "accra", "new york"];
@@ -8,6 +8,12 @@ const cityNames = ["city", "port harcourt", "cape town", "accra", "new york"];
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/dashboard");
+  };
 
   return (
     <section>
@@ -54,7 +60,10 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            <form action="" className="py-4 pt-8 flex flex-col gap-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="py-4 pt-8 flex flex-col gap-y-6"
+            >
               <input
                 type="email"
                 id="email"

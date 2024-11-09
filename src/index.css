@@ -7,7 +7,7 @@
 select:focus > option:checked {
   background: #37bbca !important;
 }
-
+.dashboard_sideBar::-webkit-scrollbar,
 .form-scroll::-webkit-scrollbar,
 .forgetPW-scroll::-webkit-scrollbar {
   display: none;
@@ -27,4 +27,15 @@ select:focus > option:checked {
 
 .forgetPW-scroll {
   @apply px-[10px] lg:h-[100vh] overflow-scroll py-[40px] text-center mx-auto;
+}
+
+.btn_dashboard {
+  @apply flex gap-4 grid-cols-2 items-center px-[16px] py-[11px] rounded-[4px];
+}
+.btn_dashboard_active {
+  @apply bg-[#FBA04B];
+}
+
+.dashboard_sideBar {
+  @apply lg:h-[100vh] font-roboto lg:overflow-scroll w-[400px] bg-[#2C96A2] pr-2 p-[38px];
 }
