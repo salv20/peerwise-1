@@ -7,10 +7,15 @@
 select:focus > option:checked {
   background: #37bbca !important;
 }
+
 .dashboard_sideBar::-webkit-scrollbar,
 .form-scroll::-webkit-scrollbar,
 .forgetPW-scroll::-webkit-scrollbar {
   display: none;
+}
+
+.btn_dashboard_active {
+  background-color: #fba04b;
 }
 
 .auth_input {
@@ -32,10 +37,7 @@ select:focus > option:checked {
 .btn_dashboard {
   @apply flex gap-4 grid-cols-2 items-center px-[16px] py-[11px] rounded-[4px];
 }
-.btn_dashboard_active {
-  @apply bg-[#FBA04B];
-}
 
 .dashboard_sideBar {
-  @apply lg:h-[100vh] font-roboto lg:overflow-scroll w-[400px] bg-[#2C96A2] pr-2 p-[38px];
+  @apply lg:h-[100vh] font-roboto lg:overflow-scroll w-[600px] xl:w-[540px] bg-[#2C96A2] pr-2 p-[38px];
 }

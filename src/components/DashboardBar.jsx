@@ -28,7 +28,7 @@ const DashboardBar = () => {
   ];
 
   return (
-    <article className="dashboard_sideBar">
+    <article className="dashboard_sideBar hidden lg:block">
       <div className="grid gap-[120px] justify-around">
         <div className="grid gap-[32px] ">
           <img
