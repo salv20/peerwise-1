@@ -1,11 +1,11 @@
-import DashboardBar from "../components/DashboardBar";
-import DashboardBody from "../components/DashboardBody";
+import DashboardSideBar from "../components/DashboardComponents/DashboardSideBar";
+import DashboardBody from "../components/DashboardComponents/DashboardBody";
 
 const DashboardPage = () => {
   return (
     <section>
       <div className="lg:flex">
-        <DashboardBar />
+        <DashboardSideBar />
         <DashboardBody />
       </div>
     </section>

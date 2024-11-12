@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 import { FaCaretUp } from "react-icons/fa6";
 
-const DashboardBar = () => {
+const DashboardSideBar = () => {
   const [activeButton, setActiveButton] = useState("Dashboard");
   const [dropDown, setDropDown] = useState(true);
 
@@ -114,11 +114,9 @@ const DashboardBar = () => {
             Logout
           </button>
         </div>
-
-        {/*  */}
       </div>
     </article>
   );
 };
 
-export default DashboardBar;
+export default DashboardSideBar;
