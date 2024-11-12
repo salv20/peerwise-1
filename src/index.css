@@ -35,7 +35,7 @@ select:focus > option:checked {
 }
 
 .rbc-date-cell.rbc-now {
-  background-color: #4267b2;
+  background-color: #45539d;
   color: white;
 }
 

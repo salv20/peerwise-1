@@ -20,9 +20,9 @@ const DashboardCalenderSection = () => {
   ];
 
   return (
-    <section className="lg:flex gap-[16px] ">
-      <div className="grid gap-y-[70px] p-[30px] calander w-fit mx-auto rounded-[16px] sm:pr-[100px]">
-        <div className="flex justify-between items-center w-[572px]">
+    <section className="lg:flex gap-[16px] lg:px-[16px]">
+      <div className="grid gap-y-[60px] p-[30px] calander w-fit mx-auto rounded-[16px] sm:pr-[100px]">
+        <div className="flex justify-between items-center w-[442px]">
           <h1 className="text-[24px] font-[900] ">May 2023</h1>
 
           <button className="flex gap-[16px] ">
@@ -35,7 +35,7 @@ const DashboardCalenderSection = () => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 316, width: 572 }}
+          style={{ height: 330, width: 442 }}
           toolbar={false}
         />
       </div>
