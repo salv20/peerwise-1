@@ -90,7 +90,7 @@ const DashboardSlider = () => {
         {slidesComponents.map((slide, index) => (
           <SwiperSlide key={index} className="py-[10px] mb-[30px] ">
             <div className="grid gap-[8px]">
-              <img src={slide.src} alt="" className="w-full" />
+              <img src={slide.src} alt="image of a course" className="w-full" />
 
               <div className="grid gap-[8px] px-[16px]">
                 <h1 className="text-[11px] font-[700]"> {slide.category}</h1>
