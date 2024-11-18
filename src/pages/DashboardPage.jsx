@@ -1,14 +1,12 @@
-import DashboardSideBar from "../components/DashboardComponents/DashboardSideBar";
-import DashboardBody from "../components/DashboardComponents/DashboardBody";
+import DashboardCalenderSection from "../components/DashboardComponents/DashboardCalenderSection";
+import DashboardSlider from "../components/DashboardComponents/DashboardSlider";
 
 const DashboardPage = () => {
   return (
-    <section>
-      <div className="lg:flex">
-        <DashboardSideBar />
-        <DashboardBody />
-      </div>
-    </section>
+    <div className="flex flex-col gap-[20px] ">
+      <DashboardCalenderSection />
+      <DashboardSlider />
+    </div>
   );
 };
 
