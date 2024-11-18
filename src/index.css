@@ -3,3 +3,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+select:focus > option:checked {
+  background: #37bbca !important;
+}
+
+body::-webkit-scrollbar,
+.dashboard_sideBar::-webkit-scrollbar,
+.form-scroll::-webkit-scrollbar,
+.forgetPW-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+a.active {
+  background-color: #fba04b;
+}
+
+.shadow,
+.calander,
+.panel {
+  box-shadow: 0px 2px 8px 0px #1100ff29;
+}
+
+.dashboard_sideBar {
+  z-index: 1000;
+}
+
+.rbc-calendar {
+  border: 1px solid #d5d4df;
+}
+
+.rbc-header {
+  display: none;
+}
+.rbc-date-cell {
+  display: flex;
+  justify-content: center;
+  height: 64px;
+}
+
+.rbc-date-cell.rbc-now {
+  background-color: #45539d;
+  color: white;
+}
+
+.auth_input {
+  @apply w-full font-roboto font-[400]  placeholder:text-[#848484] outline-none h-[46px] border-[1.25px] border-[#CECECE] px-[12px] py-[11px] h-[46px] rounded-[4px];
+}
+
+.signup_span {
+  @apply w-[153px] h-[0.75px] bg-[#CECECE] hidden md:block;
+}
+
+.form-scroll {
+  @apply px-[10px] lg:h-[100vh] grid items-center lg:overflow-scroll py-[40px] text-center mx-auto;
+}
+
+.forgetPW-scroll {
+  @apply px-[10px] lg:h-[100vh] overflow-scroll py-[40px] text-center mx-auto;
+}
+
+.btn_dashboard {
+  @apply flex gap-4 grid-cols-2 items-center px-[16px] py-[11px] rounded-[4px];
+}
+
+.dashboard_sideBar {
+  @apply font-roboto w-[75%] sm:min-w-[390px] max-w-[400px] h-[1,160px] bg-[#2C96A2] sm:pr-[8px] px-[10px] py-[38px] sm:px-[38px] fixed xxl:relative xxl:translate-x-0 h-full transition-all duration-500 overflow-scroll;
+}
+.progress {
+  @apply w-full sm:w-[284px] bg-[#F7FCFD] py-[12px] px-[16px] rounded-[8px] items-start justify-between gap-[16px] font-roboto text-[#333333];
+}
+.panel {
+  @apply rounded-[16px] p-[12px] sm:w-[306px] flex flex-col box-border;
+}
+.calander {
+  @apply sm:w-[632px] grid gap-[24px] sm:gap-[30px] p-[16px] md:p-[30px] md:h-[526px] rounded-[16px];
+}

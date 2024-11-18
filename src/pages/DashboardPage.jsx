@@ -1,7 +1,11 @@
+import DashboardCalenderSection from "../components/DashboardComponents/DashboardCalenderSection";
+import DashboardSlider from "../components/DashboardComponents/DashboardSlider";
+
 const DashboardPage = () => {
   return (
-    <div>
-      <h1>DashboardPage</h1>
+    <div className="flex flex-col gap-[20px] ">
+      <DashboardCalenderSection />
+      <DashboardSlider />
     </div>
   );
 };
