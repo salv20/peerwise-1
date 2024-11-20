@@ -79,3 +79,11 @@ a.active {
 .calander {
   @apply sm:w-[632px] grid gap-[24px] sm:gap-[30px] p-[16px] md:p-[30px] md:h-[526px] rounded-[16px];
 }
+.profile_form label,
+.profile_form h1 {
+  @apply font-[400] text-[13px];
+}
+.profile_form input,
+.profile_form p {
+  @apply w-full focus:outline-none focus:border text-[16px] rounded-[6px] font-[700] h-[32px];
+}
