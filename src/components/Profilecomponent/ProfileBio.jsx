@@ -6,7 +6,7 @@ import PortfolioCard from "./PortFolioCard";
 
 const ProfileBio = () => {
   return (
-    <section className="sm:min-w-[620px] overflow-x-hidden text-[#141414] font-roboto flex flex-col gap-[16px] ">
+    <section className="sm:min-w-[620px] overflow-x-hidden text-[#141414] font-roboto flex flex-col gap-[16px]">
       <div className="flex flex-col gap-[12px] p-[16px] shadow rounded-[16px]">
         {/*  */}
         <div className="md:flex items-center gap-[24px] ">

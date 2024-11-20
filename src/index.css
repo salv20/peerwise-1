@@ -47,6 +47,10 @@ a.active {
   color: white;
 }
 
+.profile_form select {
+  text-transform: capitalize;
+}
+
 .auth_input {
   @apply w-full font-roboto font-[400]  placeholder:text-[#848484] outline-none h-[46px] border-[1.25px] border-[#CECECE] px-[12px] py-[11px] h-[46px] rounded-[4px];
 }
@@ -80,7 +84,7 @@ a.active {
   @apply sm:w-[632px] grid gap-[24px] sm:gap-[30px] p-[16px] md:p-[30px] md:h-[526px] rounded-[16px];
 }
 .profile_form label,
-.profile_form h1 {
+.profile_form h2 {
   @apply font-[400] text-[13px];
 }
 .profile_form input,

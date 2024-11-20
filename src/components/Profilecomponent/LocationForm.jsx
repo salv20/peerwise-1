@@ -1,146 +1,139 @@
 import { useState } from "react";
 import editImg from "../../assets/profile/edit.png";
 
+const SelectDropdown = ({ label, value, options, onChange }) => (
+  <div className="flex flex-col gap-2">
+    <label htmlFor={label.toLowerCase()} className="font-medium">
+      {label}
+    </label>
+    <div className="relative">
+      <select
+        id={label.toLowerCase()}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="border border-gray-300 rounded-md px-3 py-2 w-full appearance-none outline-none"
+      >
+        <option value="" disabled>
+          Select {label}
+        </option>
+        {options.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+        <svg
+          className="fill-current h-5 w-5 text-[#2C96A2]"
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+);
+
 const LocationForm = () => {
   const [edit, setEdit] = useState(false);
 
-  const countryOptions = ["Nigeria", "NIger", "canada", "Ghana"];
+  const countryOptions = ["Nigeria", "Niger", "Canada", "Ghana"];
   const stateOptions = ["Rivers", "Lagos", "Enugu", "Abuja"];
 
-  const [countryValue, setCountryValue] = useState("Nigeria");
+  const [country, setCountry] = useState("Nigeria");
   const [state, setState] = useState("Rivers");
   const [city, setCity] = useState("Port Harcourt");
   const [houseAddress, setHouseAddress] = useState(
-    "#14 Government house, Old Gra."
+    "#14 Government house, Old GRA."
   );
 
   return (
-    <div className="shadow rounded-[16px] py-[16px] px-[24px] flex flex-col gap-[12px]">
+    <div className="shadow rounded-lg py-4 px-6 flex flex-col gap-4">
+      {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="font-[700] text-[16px] text-[#FBA04B]">Location</h1>
-
-        <button onClick={() => setEdit(!edit)}>
+        <h1 className="font-bold text-lg text-[#FBA04B]">Location</h1>
+        <button
+          onClick={() => setEdit((prev) => !prev)}
+          aria-label="Edit Location"
+        >
           <img src={editImg} height={24} width={51} alt="" />
         </button>
       </div>
-      <img src="/line.png" className="h-[3px]" alt="" />
+      <hr className="border-gray-300" />
 
-      <form className="grid sm:grid-cols-2 items-center gap-[16px] profile_form ">
-        <div>
-          {edit ? (
-            <div className="">
-              <label htmlFor="country">Country</label>
+      {/* Form */}
+      <form className="grid sm:grid-cols-2 gap-4 profile_form">
+        {/* Country */}
+        {edit ? (
+          <SelectDropdown
+            label="Country"
+            value={country}
+            options={countryOptions}
+            onChange={setCountry}
+          />
+        ) : (
+          <div className="flex flex-col gap-2">
+            <h2 className="font-medium">Country</h2>
+            <p>{country}</p>
+          </div>
+        )}
 
-              <div className="relative">
-                <select
-                  onChange={(e) => {
-                    const index = e.target.options.selectedIndex;
-                    setCountryValue(e.target.options[index].value);
-                  }}
-                  className="border appearance-none border-gray-300 outline-none rounded-md px-3 py-2 w-full"
-                >
-                  <option value="">{countryValue}</option>
-                  {countryOptions.map((option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg
-                    className="fill-current h-[30px]  w-[30px] text-[#2C96A2]"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-[4px]">
-              <h1>Country</h1>
-              <p>{countryValue}</p>
-            </div>
-          )}
-        </div>
+        {/* State */}
+        {edit ? (
+          <SelectDropdown
+            label="State"
+            value={state}
+            options={stateOptions}
+            onChange={setState}
+          />
+        ) : (
+          <div className="flex flex-col gap-2">
+            <h2 className="font-medium">State</h2>
+            <p>{state}</p>
+          </div>
+        )}
 
-        <div>
-          {edit ? (
-            <div className="">
-              <label htmlFor="state">State</label>
+        {/* City */}
+        {edit ? (
+          <div className="flex flex-col gap-2">
+            <label htmlFor="city" className="font-medium">
+              City
+            </label>
+            <input
+              id="city"
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            <h2 className="font-medium">City</h2>
+            <p>{city}</p>
+          </div>
+        )}
 
-              <div className="relative">
-                <select
-                  onChange={(e) => {
-                    const index = e.target.options.selectedIndex;
-                    setState(e.target.options[index].value);
-                  }}
-                  className="border appearance-none border-gray-300 outline-none rounded-md px-3 py-2 w-full"
-                >
-                  <option value="">{state}</option>
-                  {stateOptions.map((option, index) => (
-                    <option key={index} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg
-                    className="fill-current h-[30px]  w-[30px] text-[#2C96A2]"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-[4px]">
-              <h1>State</h1>
-              <p>{state}</p>
-            </div>
-          )}
-        </div>
-
-        <div>
-          {edit ? (
-            <div className="mb-4">
-              <label htmlFor="city">City</label>
-              <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                defaultValue={city}
-                onChange={(e) => setCity(e.target.value)}
-              />
-            </div>
-          ) : (
-            <div className="flex flex-col gap-[4px]">
-              <h1>City</h1>
-              <p>{city}</p>
-            </div>
-          )}
-        </div>
-
-        <div>
-          {edit ? (
-            <div className="mb-4">
-              <label htmlFor=">houseAddress">House Address</label>
-              <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                defaultValue={houseAddress}
-                onChange={(e) => setHouseAddress(e.target.value)}
-              />
-            </div>
-          ) : (
-            <div className="flex flex-col gap-[4px]">
-              <h1>House Address</h1>
-              <p>{houseAddress}</p>
-            </div>
-          )}
-        </div>
+        {/* House Address */}
+        {edit ? (
+          <div className="flex flex-col gap-2">
+            <label htmlFor="house-address" className="font-medium">
+              House Address
+            </label>
+            <input
+              id="house-address"
+              type="text"
+              value={houseAddress}
+              onChange={(e) => setHouseAddress(e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            <h2 className="font-medium">House Address</h2>
+            <p>{houseAddress}</p>
+          </div>
+        )}
       </form>
     </div>
   );
