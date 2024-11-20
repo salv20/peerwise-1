@@ -12,6 +12,7 @@ import {
 import SignUpPage from "./pages/SignUpPage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
 import DesignSkeleton from "./components/DesignSkeleton.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 import EmptyPage from "./pages/EmptyPage.jsx";
 
 const router = createBrowserRouter(
@@ -23,6 +24,8 @@ const router = createBrowserRouter(
 
       <Route path="/" Component={DesignSkeleton}>
         <Route path="dashboard" Component={DashboardPage} />
+        <Route path="profile" Component={ProfilePage} />
+
         <Route path="*" Component={EmptyPage} />
       </Route>
     </Route>
