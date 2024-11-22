@@ -20,7 +20,7 @@ const SkillLevelUI = () => {
             placeholder="Search"
             className="w-full py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
           />
-          <button className="absolute right-2 top-2 text-teal-500">
+          <button className="absolute right-2 top-2 text-[#2C96A2]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -45,7 +45,7 @@ const SkillLevelUI = () => {
           <label className="text-gray-700 font-medium">Wireframing</label>
           <input
             type="checkbox"
-            className="w-5 h-5 text-teal-500 rounded focus:ring-teal-400"
+            className="w-5 h-5 text-[#2C96A2] rounded focus:ring-teal-400"
           />
         </div>
         <div className="mt-2">
@@ -71,7 +71,7 @@ const SkillLevelUI = () => {
             <span className="text-gray-700">Wireframing</span>
             <input
               type="checkbox"
-              className="w-5 h-5 text-teal-500 rounded focus:ring-teal-400"
+              className="w-5 h-5 text-[#2C96A2] rounded focus:ring-teal-400"
               checked={selected[index]}
               onChange={() => toggleSelection(index)}
             />
