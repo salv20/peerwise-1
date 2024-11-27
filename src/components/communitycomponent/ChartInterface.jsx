@@ -71,10 +71,10 @@ const ChartInterface = () => {
         </div>
         <hr className="border-[#CECECE]" />
 
-        <div className="flex flex-col gap-[12px] p-4">
+        <div className="flex flex-col gap-[12px]">
           {messages.map((msg) => (
             <div
-              className={`flex items-end gap-[16px] ${
+              className={`flex items-end gap-[16px]  ${
                 msg.sender === "You" ? "justify-end" : ""
               }`}
               key={msg.id}
@@ -86,7 +86,7 @@ const ChartInterface = () => {
               )}
 
               <div
-                className={`flex flex-col rounded-[8px] p-4 max-w-[90%] md:max-w-[80%]
+                className={`flex flex-col rounded-[8px] max-w-[90%] md:max-w-[80%]
                 ${
                   msg.sender === "You"
                     ? "bg-[#F7FCFD]"
@@ -95,7 +95,7 @@ const ChartInterface = () => {
                 `}
               >
                 {msg.sender !== "You" && (
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between py-[4px] px-[12px]">
                     <p className="text-[13px] p-[4px] rounded-[4px] w-fit font-[700] bg-[#EBF8FA]">
                       {msg.sender}
                     </p>
@@ -114,22 +114,39 @@ const ChartInterface = () => {
                   </div>
                 )}
 
-                <div className="flex flex-col">
-                  <div>
-                    {msg.replyTo && (
-                      <div className="text-red-400">{msg.replyTo.text}</div>
-                    )}
-                    <div
-                      className="text-sm text-gray-800 break-words"
+                <div
+                  className={`${
+                    msg.sender === "You" &&
+                    "bg-[#F7FCFD] border-[#CECECE] rounded-[4px] border-[1.25px]"
+                  } `}
+                >
+                  {msg.replyTo && (
+                    <div className="p-[10px]">
+                      <p className="text-[13px] p-[4px] rounded-[4px] w-fit font-[700] bg-[#EBF8FA]">
+                        {msg.replyTo.sender}
+                      </p>
+                      <p className="text-[13px]">{`${msg.replyTo.text.slice(
+                        0,
+                        100
+                      )}...`}</p>
+                    </div>
+                  )}
+
+                  <div
+                    className={`flex justify-between gap-[14px] p-[8px] ${
+                      msg.sender === "You" && "bg-[#EBF8FA]"
+                    }`}
+                  >
+                    <p
+                      className="break-words"
                       onClick={() => replyToMessage(msg.id)}
                     >
                       {msg.text}
-                    </div>
+                    </p>
+                    <p className="text-xs text-gray-500 mt-2 self-end">
+                      {msg.time}
+                    </p>
                   </div>
-
-                  <p className="text-xs text-gray-500 mt-2 self-end">
-                    {msg.time}
-                  </p>
                 </div>
               </div>
             </div>
