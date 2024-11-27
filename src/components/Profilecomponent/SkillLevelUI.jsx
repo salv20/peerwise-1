@@ -18,7 +18,7 @@ const SkillLevelUI = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-full py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            className="w-full py-2 px-4 rounded-lg border border-[#CECECE] focus:outline-none focus:ring-2 focus:ring-teal-400"
           />
           <button className="absolute right-2 top-2 text-[#2C96A2]">
             <svg

@@ -1,159 +1,179 @@
-// import { useState } from "react";
-// import { FaSearch } from "react-icons/fa";
+import searchimg from "../../assets/community/search.png";
+import replyimg from "../../assets/community/reply.png";
+import paperclip from "../../assets/community/paperclip.png";
+import cancelimg from "../../assets/community/cancel.png";
 
-import { FaSearch } from "react-icons/fa";
-
-// const ChatInterface = () => {
-//   const [message, setMessage] = useState("");
-//   const [messages, setMessages] = useState([
-//     {
-//       id: 1,
-//       sender: "Oche China",
-//       initials: "OC",
-//       content:
-//         "Lorem ipsum dolor sit amet consectetur. Etiam at mollis aenean consequat est.",
-//       timestamp: "9:21",
-//       sentByUser: false,
-//     },
-//     {
-//       id: 2,
-//       sender: "Anang Ayodale",
-//       initials: "AA",
-//       content: "Tortor proin nunc fames semper tristique dui platea.",
-//       timestamp: "9:21",
-//       sentByUser: false,
-//     },
-//     {
-//       id: 3,
-//       sender: "Mike Dan",
-//       initials: "MD",
-//       content: "Morbi fermentum ultricies adipiscing facilisis suspendisse.",
-//       timestamp: "9:21",
-//       sentByUser: false,
-//     },
-//   ]);
-
-//   const handleSendMessage = () => {
-//     if (message.trim()) {
-//       setMessages((prevMessages) => [
-//         ...prevMessages,
-//         {
-//           id: prevMessages.length + 1,
-//           sender: "You",
-//           initials: "Y",
-//           content: message,
-//           timestamp: "Now",
-//           sentByUser: true,
-//         },
-//       ]);
-//       setMessage("");
-//     }
-//   };
-
-//   return (
-//     <div className=" mx-auto min-w-[632px] p-4 rounded-lg shadow">
-//       {/* Search bar */}
-// <div className="flex items-center w-full mb-4">
-//   <div className="flex items-center">
-//     <input
-//       type="text"
-//       placeholder="Search keyword"
-//       className="flex-1 py-2 px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-400 focus:outline-none"
-//     />
-//     <button className=" text-[#2C96A2]">
-//       <FaSearch />
-//     </button>
-//   </div>
-//   <img src="/bluecommunity.png" alt="" />
-// </div>
-
-//       {/* Chat area */}
-//       <div className="h-96 overflow-y-auto bg-white rounded-lg p-4 shadow-inner mb-4">
-//         {messages.map((msg) => (
-//           <div
-//             key={msg.id}
-//             className={`flex items-start mb-4 ${
-//               msg.sentByUser ? "justify-end" : "justify-start"
-//             }`}
-//           >
-//             {!msg.sentByUser && (
-//               <div className="w-8 h-8 rounded-full bg-[#2C96A2] text-white flex items-center justify-center font-bold mr-2">
-//                 {msg.initials}
-//               </div>
-//             )}
-//             <div className="max-w-xs">
-//               <div
-//                 className={`p-3 rounded-lg shadow-md ${
-//                   msg.sentByUser
-//                     ? "bg-teal-100 text-teal-900"
-//                     : "bg-gray-100 text-gray-800"
-//                 }`}
-//               >
-//                 <p className="text-sm">{msg.content}</p>
-//               </div>
-//               <div
-//                 className={`text-xs mt-1 ${
-//                   msg.sentByUser ? "text-right text-gray-500" : "text-gray-500"
-//                 }`}
-//               >
-//                 {msg.timestamp}
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Message input */}
-//      <div className="flex items-center">
-//         <input
-//           type="text"
-//           placeholder="Type message..."
-//           value={message}
-//           onChange={(e) => setMessage(e.target.value)}
-//           className="flex-1 py-2 px-4 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-400 focus:outline-none"
-//         />
-//         <button
-//           onClick={handleSendMessage}
-//           className="ml-2 bg-[#2C96A2] text-white py-2 px-4 rounded-lg shadow-md hover:bg-teal-600 focus:outline-none"
-//         >
-//           <svg
-//             xmlns="http://www.w3.org/2000/svg"
-//             fill="none"
-//             viewBox="0 0 24 24"
-//             strokeWidth={2}
-//             stroke="currentColor"
-//             className="w-5 h-5"
-//           >
-//             <path
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               d="M12 19l-7-7m0 0l7-7m-7 7h14"
-//             />
-//           </svg>
-//         </button>
-//     </div>
-//     </div>
-//   );
-// };
-
-// export default ChatInterface;
+import { useState } from "react";
+import { FiSend } from "react-icons/fi";
 
 const ChartInterface = () => {
+  const [messages, setMessages] = useState([
+    {
+      id: 1,
+      sender: "Oche China",
+      avatar: "OC",
+      text: "Lorem ipsum dolor sit amet consectetur. Etiam at mollis aenean consequat est. Tortor proin nunc fames semper tristique duisplatea. Morbi fermentum ultricies adipiscing facilisi suspendisse.",
+      time: "09:21",
+    },
+
+    {
+      id: 2,
+      sender: "Anang Ayodele",
+      avatar: "AA",
+      text: "Lorem ipsum dolor sit amet consectetur. Etiam at mollis aenean consequat est. Tortor proin nunc fames semper tristique duisplatea. Morbi fermentum ultricies adipiscing facilisi suspendisse.",
+      time: "20:21",
+    },
+  ]);
+  const [reply, setReply] = useState("");
+  const [replyTo, setReplyTo] = useState(null);
+
+  const handleSend = () => {
+    if (reply.trim()) {
+      const newMessage = {
+        id: messages.length + 1,
+        text: reply,
+        sender: "You",
+        replyTo: replyTo,
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      };
+      setMessages([...messages, newMessage]);
+      setReply("");
+      setReplyTo(null);
+    }
+  };
+
+  const replyToMessage = (messageId) => {
+    const message = messages.find((msg) => msg.id === messageId);
+    setReplyTo(message);
+  };
+
   return (
     <section>
-      <div className="min-w-[632px] bg-red-500 p-2">
-        <div className="w-full flex items-center">
-          <input
-            type="search"
-            name=""
-            id=""
-            placeholder="messages"
-            className="h-11 w-full outline-none bg-transparent indent-[20px] placeholder:font-bold placeholder:capitalize placeholder:text-btnGreen placeholder:text-lg"
-          />
+      <div className="flex flex-col gap-[20px] lg:min-w-[632px] font-roboto">
+        <div className="p-2 flex justify-between items-center">
+          <div className="w-[80%] flex items-center border-[#CECECE] rounded-[4px] border-[1.25px] px-[12px]">
+            <input
+              type="search"
+              name=""
+              id=""
+              placeholder="Search keyword"
+              className=" py-[11px] w-full outline-none placeholder:font-[400] placeholder:capitalize placeholder:text-btnGreen placeholder:text-[16px]"
+            />
 
-          <button aria-label="search-icon">
-            <FaSearch className=" text-[36px] w-10 p-2 bg-white rounded-full text-btnGreen" />
-          </button>
+            <button aria-label="search-icon">
+              <img src={searchimg} alt="" width={25} height={25} />
+            </button>
+          </div>
+          <img src="/bluecommunity.png" alt="" />
+        </div>
+        <hr className="border-[#CECECE]" />
+
+        <div className="flex flex-col gap-[12px] p-4">
+          {messages.map((msg) => (
+            <div
+              className={`flex items-end gap-[16px] ${
+                msg.sender === "You" ? "justify-end" : ""
+              }`}
+              key={msg.id}
+            >
+              {msg.sender !== "You" && (
+                <p className="text-[19px] font-[700] py-[6px] px-[8px] font-[roboto] rounded-full bg-[#eaf8fa] flex items-center justify-center">
+                  {msg.avatar}
+                </p>
+              )}
+
+              <div
+                className={`flex flex-col rounded-[8px] p-4 max-w-[90%] md:max-w-[80%]
+                ${
+                  msg.sender === "You"
+                    ? "bg-[#F7FCFD]"
+                    : " border-[1px] border-[#CECECE] "
+                }
+                `}
+              >
+                {msg.sender !== "You" && (
+                  <div className="flex items-center justify-between">
+                    <p className="text-[13px] p-[4px] rounded-[4px] w-fit font-[700] bg-[#EBF8FA]">
+                      {msg.sender}
+                    </p>
+                    <button
+                      onClick={() => (
+                        console.log(msg.id), replyToMessage(msg.id)
+                      )}
+                    >
+                      <img
+                        src={replyimg}
+                        height={19}
+                        width={17.68}
+                        alt="reply"
+                      />
+                    </button>
+                  </div>
+                )}
+
+                <div className="flex flex-col">
+                  <div>
+                    {msg.replyTo && (
+                      <div className="text-red-400">{msg.replyTo.text}</div>
+                    )}
+                    <div
+                      className="text-sm text-gray-800 break-words"
+                      onClick={() => replyToMessage(msg.id)}
+                    >
+                      {msg.text}
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-500 mt-2 self-end">
+                    {msg.time}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/*  */}
+        <div className="p-4 bg-white">
+          {replyTo && (
+            <div className="border-[#CECECE] rounded-[8px] text-[13px] py-[4px] px-[12px] border-[1px]">
+              <div className="flex mb-1 justify-between items-center">
+                <h1 className="">
+                  Reply from:&nbsp;
+                  <span className="text-[#333333] font-[700]">
+                    {replyTo.sender}
+                  </span>
+                </h1>
+                <button onClick={() => setReplyTo(null)}>
+                  <img src={cancelimg} alt="" />
+                </button>
+              </div>
+              <p>{`${replyTo.text.slice(0, 100)}...`}</p>
+            </div>
+          )}
+
+          <div className="bg-[#37BBCA] py-[24px] px-[32px] rounded-[16px]">
+            <div className="flex items-center bg-white pl-[12px] shadow-sm justify-between rounded-[4px] border-[1px] border-[#CECECE]">
+              <div className="flex gap-[4px] items-center w-full">
+                <img src={paperclip} alt="" />
+                <input
+                  type="text"
+                  value={reply}
+                  onChange={(e) => setReply(e.target.value)}
+                  className="focus:outline-none placeholder:text-[#848484] w-full bg-red- py-[11px] "
+                  placeholder="Type a message..."
+                />
+              </div>
+              <button
+                onClick={handleSend}
+                className="text-[#2C96A2] text-[24px] rounded-md pr-[12px]"
+              >
+                <FiSend />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

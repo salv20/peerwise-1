@@ -11,7 +11,7 @@ const SelectDropdown = ({ label, value, options, onChange }) => (
         id={label.toLowerCase()}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-gray-300 rounded-md px-3 py-2 w-full appearance-none outline-none"
+        className="border border-[#CECECE] rounded-md px-3 py-2 w-full appearance-none outline-none"
       >
         <option value="" disabled>
           Select {label}
@@ -59,7 +59,7 @@ const LocationForm = () => {
           <img src={editImg} height={24} width={51} alt="" />
         </button>
       </div>
-      <hr className="border-gray-300" />
+      <hr className="border-[#CECECE]" />
 
       {/* Form */}
       <form className="grid sm:grid-cols-2 gap-4 profile_form">
@@ -104,7 +104,7 @@ const LocationForm = () => {
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+              className="border border-[#CECECE] rounded-md px-3 py-2 w-full"
             />
           </div>
         ) : (
@@ -125,7 +125,7 @@ const LocationForm = () => {
               type="text"
               value={houseAddress}
               onChange={(e) => setHouseAddress(e.target.value)}
-              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+              className="border border-[#CECECE] rounded-md px-3 py-2 w-full"
             />
           </div>
         ) : (

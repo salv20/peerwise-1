@@ -9,7 +9,7 @@ const SelectDropdown = ({ label, value, options, onChange }) => (
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-gray-300 rounded-md px-3 py-2 w-full appearance-none outline-none"
+        className="border border-[#CECECE] rounded-md px-3 py-2 w-full appearance-none outline-none"
       >
         <option value="" disabled>
           Select {label}
@@ -134,7 +134,7 @@ const PortfolioCard = () => {
                   type="text"
                   value={link}
                   onChange={(e) => handleLinkChange(index, e.target.value)}
-                  className="border border-gray-300 rounded-md px-3 py-2 w-full"
+                  className="border border-[#CECECE] rounded-md px-3 py-2 w-full"
                 />
               </div>
             ))}

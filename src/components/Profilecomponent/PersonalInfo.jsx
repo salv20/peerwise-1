@@ -14,7 +14,7 @@ const InputField = ({ label, id, type, value, onChange, editable }) => (
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="border border-gray-300 rounded-md px-3 py-2 w-full outline-none"
+          className="border border-[#CECECE] rounded-md px-3 py-2 w-full outline-none"
         />
       </>
     ) : (
@@ -51,7 +51,7 @@ const PersonalInfo = () => {
           <img src={editImg} height={24} width={51} alt="" />
         </button>
       </div>
-      <hr className="border-gray-300" />
+      <hr className="border-[#CECECE]" />
 
       {/* Form */}
       <form className="grid sm:grid-cols-2 gap-4 profile_form">
