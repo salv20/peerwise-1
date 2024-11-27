@@ -58,7 +58,10 @@ const DashboardSideBar = ({ openNav, setOpenNav }) => {
 
                     {dropDown &&
                       button.dropOptions.map((button) => (
-                        <div className="grid sm:px-[24px]" key={button.name}>
+                        <div
+                          className="px-[14px] sm:px-[24px]"
+                          key={button.name}
+                        >
                           <button
                             aria-label={button.name}
                             onClick={() => setOpenNav(false)}

@@ -28,7 +28,6 @@ const DashboardProgress = () => {
             <img src="/percent.png" alt="" height={40} width={40} />
           </div>
         </div>
-        {/*  */}
 
         <div className="progress grid">
           <div className="flex justify-between">
